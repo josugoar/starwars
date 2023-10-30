@@ -1,5 +1,5 @@
 """
-ASGI config for starwars project.
+ASGI config for traveloffers project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "starwars.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "traveloffers.settings")
 
 application = get_asgi_application()
