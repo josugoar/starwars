@@ -1,8 +1,15 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name_plural = "categories"
+
+    def get_absolute_url(self):
+        return reverse('category-detail', args=[str(self.id)])
 
     def __str__(self):
         return str(self.name)
@@ -11,15 +18,26 @@ class Category(models.Model):
 class Country(models.Model):
     name = models.CharField(max_length=255)
 
+    class Meta:
+        verbose_name_plural = "countries"
+
+    def get_absolute_url(self):
+        return reverse('country-detail', args=[str(self.id)])
+
     def __str__(self):
         return str(self.name)
 
 
 class Offer(models.Model):
-    categories = models.ManyToManyField(Category, blank=True)
-    country = models.ForeignKey(Country, on_delete=models.CASCADE)
+    categories = models.ManyToManyField(
+        Category, blank=True, related_name="offers")
+    country = models.ForeignKey(
+        Country, on_delete=models.CASCADE, related_name="offers")
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=7, decimal_places=2)
+
+    def get_absolute_url(self):
+        return reverse('offer-detail', args=[str(self.id)])
 
     def __str__(self):
         return str(self.name)

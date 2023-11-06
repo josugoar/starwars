@@ -10,16 +10,19 @@ class IndexView(generic.ListView):
         return Offer.objects
 
 
-class OfferView(generic.DetailView):
+class OfferListView(generic.ListView):
     model = Offer
-    template_name = "offers/offer.html"
+    context_object_name = "offer_list"
+    queryset = Offer.objects
 
 
-class CountryView(generic.DetailView):
+class OfferDetailView(generic.DetailView):
+    model = Offer
+
+
+class CountryDetailView(generic.DetailView):
     model = Country
-    template_name = "offers/country.html"
 
 
-class CategoryView(generic.DetailView):
+class CategoryDetailView(generic.DetailView):
     model = Category
-    template_name = "offers/category.html"
