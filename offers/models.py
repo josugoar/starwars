@@ -9,7 +9,7 @@ class Category(models.Model):
         verbose_name_plural = "categories"
 
     def get_absolute_url(self):
-        return reverse("category-detail", args=[str(self.id)])
+        return reverse("offers:category-detail", args=[str(self.id)])
 
     def __str__(self):
         return str(self.name)
@@ -22,7 +22,7 @@ class Country(models.Model):
         verbose_name_plural = "countries"
 
     def get_absolute_url(self):
-        return reverse("country-detail", args=[str(self.id)])
+        return reverse("offers:country-detail", args=[str(self.id)])
 
     def __str__(self):
         return str(self.name)
@@ -35,7 +35,7 @@ class Offer(models.Model):
     price = models.DecimalField(max_digits=7, decimal_places=2)
 
     def get_absolute_url(self):
-        return reverse("offer-detail", args=[str(self.id)])
+        return reverse("offers:offer-detail", args=[str(self.id)])
 
     def __str__(self):
         return str(self.name)
