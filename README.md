@@ -1,3 +1,3 @@
 # traveloffers
 
-> https://github.com/josugoar/traveloffers
+https://github.com/josugoar/traveloffers
