@@ -3,6 +3,7 @@ from django.urls import reverse
 
 
 class Category(models.Model):
+    image = models.ImageField(upload_to="media", blank=True)
     name = models.CharField(max_length=255)
 
     class Meta:
@@ -16,6 +17,7 @@ class Category(models.Model):
 
 
 class Country(models.Model):
+    image = models.ImageField(upload_to="media", blank=True)
     name = models.CharField(max_length=255)
 
     class Meta:
@@ -31,8 +33,15 @@ class Country(models.Model):
 class Offer(models.Model):
     categories = models.ManyToManyField(Category, blank=True)
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
+    days = models.IntegerField()
+    description = models.TextField()
+    featured = models.BooleanField(default=False)
+    image = models.ImageField(upload_to="media", blank=True)
     name = models.CharField(max_length=255)
+    participants = models.IntegerField()
     price = models.DecimalField(max_digits=7, decimal_places=2)
+    score = models.FloatField(blank=True)
+    valuations = models.IntegerField(default=0)
 
     def get_absolute_url(self):
         return reverse("offers:offer-detail", args=(self.id,))
