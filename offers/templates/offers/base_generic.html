@@ -18,27 +18,19 @@
       crossorigin="anonymous"
     ></script>
     {% load static %}
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
       rel="stylesheet"
     />
-    <!-- Libraries Stylesheet -->
     <link
       href="{% static 'offers/lib/owlcarousel/assets/owl.carousel.min.css' %}"
       rel="stylesheet"
     />
-    <link
-      href="{% static 'offers/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}"
-      rel="stylesheet"
-    />
-    <!-- Customized Bootstrap Stylesheet -->
     <link rel="stylesheet" href="{% static 'offers/css/style.css' %}" />
   </head>
   <body>
@@ -282,5 +274,8 @@
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
       ><i class="fa fa-angle-double-up"></i
     ></a>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
   </body>
 </html>
