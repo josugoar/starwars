@@ -1,4 +1,3 @@
-from typing import Any
 from django.db.models.query import QuerySet
 from django.views import generic
 
@@ -12,7 +11,6 @@ class IndexView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        context["featured_offer_list"] = Offer.objects.filter(featured=True)
         context["country_list"] = Country.objects.all()
         context["category_list"] = Category.objects.all()
         return context
@@ -31,16 +29,6 @@ class OfferDetailView(generic.DetailView):
 class CountryDetailView(generic.DetailView):
     model = Country
 
-    def get_context_data(self, **kwargs):
-        context = super(CountryDetailView, self).get_context_data(**kwargs)
-        context["offer_list"] = context["country"].offer_set.all()
-        return context
-
 
 class CategoryDetailView(generic.DetailView):
     model = Category
-
-    def get_context_data(self, **kwargs):
-        context = super(CategoryDetailView, self).get_context_data(**kwargs)
-        context["offer_list"] = context["category"].offer_set.all()
-        return context
