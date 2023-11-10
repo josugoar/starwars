@@ -1,55 +1,92 @@
 {% extends "offers/base_generic.html" %}
 {% block content %}
-  <section>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-      <div class="bg-white dark:bg-gray-700 rounded-md shadow-md p-4 transform transition duration-500 ease-in-out hover:scale-105">
-        <img alt="{{ offer.name }}"
-             class="w-full h-48 object-cover mb-2 rounded-md"
-             height="200"
-             src="{{ offer.image }}"
-             style="aspect-ratio: 200 / 200;
-                    object-fit: cover"
-             width="200" />
-        <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ offer.name }}</h3>
-        <p class="text-gray-700 dark:text-gray-300">{{ offer.description }}</p>
-        <p class="text-gray-700 dark:text-gray-300 flex items-center">
-          <svg xmlns="http://www.w3.org/2000/svg"
-               width="24"
-               height="24"
-               viewBox="0 0 24 24"
-               fill="none"
-               stroke="currentColor"
-               stroke-width="2"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               class="w-4 h-4 mr-2"
-               style="--darkreader-inline-stroke: currentColor"
-               data-darkreader-inline-stroke="">
-            <line x1="12" x2="12" y1="2" y2="22"></line>
-            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-          </svg>
-          Price: {{ offer.price }}€
-        </p>
-        <p class="text-gray-700 dark:text-gray-300 flex items-center">
-          <svg xmlns="http://www.w3.org/2000/svg"
-               width="24"
-               height="24"
-               viewBox="0 0 24 24"
-               fill="none"
-               stroke="currentColor"
-               stroke-width="2"
-               stroke-linecap="round"
-               stroke-linejoin="round"
-               class="w-4 h-4 mr-2"
-               style="--darkreader-inline-stroke: currentColor"
-               data-darkreader-inline-stroke="">
-            <circle cx="12" cy="12" r="10"></circle>
-            <polyline points="12 6 12 12 16 14"></polyline>
-          </svg>
-          Duration: {{ offer.days }} days
-        </p>
-        {% comment %} TODO {% endcomment %}
-      </div>
+  <section class="relative">
+    <img alt="{{ offer.name }}"
+         class="w-full h-64 object-cover"
+         height="256"
+         src="{{ offer.image }}"
+         style="aspect-ratio: 256 / 256;
+                object-fit: cover"
+         width="256" />
+    <div style="backdrop-filter: blur(5px);
+                background-color: rgba(0, 0, 0, 0.5)"
+         class="absolute bottom-4 left-4 bg-white dark:bg-gray-700 m-4 p-4 rounded-md backdrop-blur-lg bg-opacity-60">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">{{ offer.name }}</h2>
+      <p class="text-gray-700 dark:text-gray-300">{{ offer.description }}</p>
+      <p class="text-gray-700 dark:text-gray-300 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="24"
+             height="24"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             class=" w-4 h-4 mr-2"
+             style="--darkreader-inline-stroke: currentColor"
+             data-darkreader-inline-stroke="">
+          <line x1="12" x2="12" y1="2" y2="22"></line>
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+        </svg>
+        Price: {{ offer.price }}€
+      </p>
+      <p class="text-gray-700 dark:text-gray-300 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="24"
+             height="24"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             class=" w-4 h-4 mr-2"
+             style="--darkreader-inline-stroke: currentColor"
+             data-darkreader-inline-stroke="">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        Duration: {{ offer.days }} days
+      </p>
     </div>
+  </section>
+  <section>
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Country</h2>
+    <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+      <li class="text-center transform transition duration-500 ease-in-out hover:scale-105">
+        <a href="{% url 'offers:country-detail' pk=offer.country.id %}">
+          <img alt="{{ offer.country.name }}"
+               class="mx-auto w-24 h-24 object-cover rounded-full mb-2"
+               height="100"
+               src="{{ offer.country.image }}"
+               style="aspect-ratio: 100 / 100;
+                      object-fit: cover"
+               width="100" />
+          <p class="text-gray-700 dark:text-gray-300">{{ offer.country.name }}</p>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Categories</h2>
+    <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+      {% for category in offer.categories.all %}
+        <li class="text-center transform transition duration-500 ease-in-out hover:scale-105">
+          <a href="{% url 'offers:category-detail' pk=category.id %}">
+            <img alt="{{ category.name }}"
+                 class="mx-auto w-24 h-24 object-cover rounded-full mb-2"
+                 height="100"
+                 src="{{ category.image }}"
+                 style="aspect-ratio: 100 / 100;
+                        object-fit: cover"
+                 width="100" />
+            <p class="text-gray-700 dark:text-gray-300">{{ category.name }}</p>
+          </a>
+        </li>
+      {% empty %}
+        <p>No categories available</p>
+      {% endfor %}
+    </ul>
   </section>
 {% endblock content %}

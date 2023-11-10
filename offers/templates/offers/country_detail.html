@@ -1,18 +1,18 @@
 {% extends "offers/base_generic.html" %}
 {% block content %}
-  <section>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-      <div class="bg-white dark:bg-gray-700 rounded-md shadow-md p-4 transform transition duration-500 ease-in-out hover:scale-105">
-        <img alt="{{ country.name }}"
-             class="w-full h-48 object-cover mb-2 rounded-md"
-             height="200"
-             src="{{ country.image }}"
-             style="aspect-ratio: 200 / 200;
-                    object-fit: cover"
-             width="200" />
-        <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ country.name }}</h3>
-        <p class="text-gray-700 dark:text-gray-300">{{ country.description }}</p>
-      </div>
+  <section class="relative">
+    <img alt="{{ country.name }}"
+         class="w-full h-64 object-cover"
+         height="256"
+         src="{{ country.image }}"
+         style="aspect-ratio: 256 / 256;
+                object-fit: cover"
+         width="256" />
+    <div style="backdrop-filter: blur(5px);
+                background-color: rgba(0, 0, 0, 0.5)"
+         class="absolute bottom-4 left-4 bg-white dark:bg-gray-700 m-4 p-4 rounded-md backdrop-blur-lg bg-opacity-60">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">{{ country.name }}</h2>
+      <p class="text-gray-700 dark:text-gray-300">{{ country.description }}</p>
     </div>
   </section>
   <section>
@@ -61,11 +61,11 @@
             </svg>
             Duration: {{ offer.days }} days
           </p>
-          <a href="{% url 'offers:offer-detail' pk=offer.id %}">
+          <form action="{% url 'offers:offer-detail' pk=offer.id %}" method="get">
             <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 mt-4">
               Book Now
             </button>
-          </a>
+          </form>
         </div>
       {% empty %}
         <p>No offers available</p>
