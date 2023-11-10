@@ -1,4 +1,3 @@
-from django.db.models.query import QuerySet
 from django.views import generic
 
 from offers.models import Category, Country, Offer
@@ -20,6 +19,14 @@ class OfferListView(generic.ListView):
     model = Offer
     context_object_name = "offer_list"
     queryset = Offer.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super(OfferListView, self).get_context_data(**kwargs)
+        context["country_name_list"] = Country.objects.values_list("name",
+                                                                   flat=True)
+        context["category_name_list"] = Category.objects.values_list("name",
+                                                                     flat=True)
+        return context
 
 
 class OfferDetailView(generic.DetailView):
