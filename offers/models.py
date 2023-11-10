@@ -3,7 +3,7 @@ from django.urls import reverse
 
 
 class Category(models.Model):
-    image = models.FilePathField(path="offers/static/offers/img/categories")
+    image = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     description = models.TextField()
 
@@ -18,7 +18,7 @@ class Category(models.Model):
 
 
 class Country(models.Model):
-    image = models.FilePathField(path="offers/static/offers/img/countries")
+    image = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     description = models.TextField()
 
@@ -38,7 +38,7 @@ class Offer(models.Model):
     days = models.IntegerField()
     description = models.TextField()
     featured = models.BooleanField(default=False)
-    image = models.FilePathField(path="offers/static/offers/img/offers")
+    image = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=7, decimal_places=2)
 

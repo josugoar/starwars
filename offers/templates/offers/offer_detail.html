@@ -1,5 +1,4 @@
 {% extends "offers/base_generic.html" %}
-{% load static %}
 {% block content %}
   <section>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
@@ -7,7 +6,7 @@
         <img alt="{{ offer.name }}"
              class="w-full h-48 object-cover mb-2 rounded-md"
              height="200"
-             src="{% static '{{ offer.image }}' %}"
+             src="{{ offer.image }}"
              style="aspect-ratio: 200 / 200;
                     object-fit: cover"
              width="200" />

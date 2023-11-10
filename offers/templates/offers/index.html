@@ -1,5 +1,4 @@
 {% extends "offers/base_generic.html" %}
-{% load static %}
 {% block content %}
   <section>
     <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Featured Offers</h2>
@@ -9,7 +8,7 @@
           <img alt="{{ offer.name }}"
                class="w-full h-48 object-cover mb-2 rounded-md"
                height="200"
-               src="{% static '{{ offer.image }}' %}"
+               src="{{ offer.image }}"
                style="aspect-ratio: 200 / 200;
                       object-fit: cover"
                width="200" />
@@ -67,7 +66,7 @@
             <img alt="{{ country.name }}"
                  class="mx-auto w-24 h-24 object-cover rounded-full mb-2"
                  height="100"
-                 src="{% static '{{ country.image }}' %}"
+                 src="{{ country.image }}"
                  style="aspect-ratio: 100 / 100;
                         object-fit: cover"
                  width="100" />
@@ -88,7 +87,7 @@
             <img alt="{{ category.name }}"
                  class="mx-auto w-24 h-24 object-cover rounded-full mb-2"
                  height="100"
-                 src="{% static '{{ category.image }}' %}"
+                 src="{{ category.image }}"
                  style="aspect-ratio: 100 / 100;
                         object-fit: cover"
                  width="100" />
