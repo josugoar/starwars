@@ -1,141 +1,97 @@
 {% extends "offers/base_generic.html" %}
 {% load static %}
 {% block content %}
-  <!-- Carousel Start -->
-  <div class="container-fluid p-0">
-    <div id="header-carousel" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="w-100"
-               src="{% static 'offers/img/carousel-1.jpg' %}"
-               alt="Image" />
-          <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-            <div class="p-3" style="max-width: 900px">
-              <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
-              <h1 class="display-3 text-white mb-md-4">Let's Discover The World Together</h1>
-              <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
-            </div>
-          </div>
+  <section>
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Featured Offers</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+      {% for offer in featured_offer_list %}
+        <div class="bg-white dark:bg-gray-700 rounded-md shadow-md p-4 transform transition duration-500 ease-in-out hover:scale-105">
+          <img alt="{{ offer.name }}"
+               class="w-full h-48 object-cover mb-2 rounded-md"
+               height="200"
+               src="{% static '{{ offer.image }}' %}"
+               style="aspect-ratio: 200 / 200;
+                      object-fit: cover"
+               width="200" />
+          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ offer.name }}</h3>
+          <p class="text-gray-700 dark:text-gray-300">{{ offer.description }}</p>
+          <p class="text-gray-700 dark:text-gray-300 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="24"
+                 height="24"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 class="w-4 h-4 mr-2">
+              <line x1="12" x2="12" y1="2" y2="22"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            Price: {{ offer.price }}€
+          </p>
+          <p class="text-gray-700 dark:text-gray-300 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="24"
+                 height="24"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 class="w-4 h-4 mr-2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            Duration: {{ offer.days }} days
+          </p>
+          <a href="{% url 'offers:offer-detail' pk=offer.id %}">
+            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 mt-4">
+              Book Now
+            </button>
+          </a>
         </div>
-        <div class="carousel-item">
-          <img class="w-100"
-               src="{% static 'offers/img/carousel-2.jpg' %}"
-               alt="Image" />
-          <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-            <div class="p-3" style="max-width: 900px">
-              <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
-              <h1 class="display-3 text-white mb-md-4">Discover Amazing Places With Us</h1>
-              <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a class="carousel-control-prev"
-         href="#header-carousel"
-         data-slide="prev">
-        <div class="btn btn-dark" style="width: 45px; height: 45px">
-          <span class="carousel-control-prev-icon mb-n2"></span>
-        </div>
-      </a>
-      <a class="carousel-control-next"
-         href="#header-carousel"
-         data-slide="next">
-        <div class="btn btn-dark" style="width: 45px; height: 45px">
-          <span class="carousel-control-next-icon mb-n2"></span>
-        </div>
-      </a>
+      {% endfor %}
     </div>
-  </div>
-  <!-- Carousel End -->
-  <!-- Packages Start -->
-  <div class="container-fluid py-5">
-    <div class="container pt-5 pb-3">
-      <div class="text-center mb-3 pb-3">
-        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px">Offers</h6>
-        <h1>Best Offers</h1>
-      </div>
-      <div class="row">
-        {% for offer in featured_offer_list %}
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="package-item bg-white mb-2">
-              <img class="img-fluid"
-                   src="{% static 'offer/img/{{ offer.image }}' %}"
-                   alt="" />
-              <div class="p-4">
-                <div class="d-flex justify-content-between mb-3">
-                  <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>{{
-                  offer.country.name }}</small>
-                  <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>{{
-                  offer.days }} days</small>
-                  <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>{{
-                  offer.participants }} Person</small>
-                </div>
-                <a class="h5 text-decoration-none" href="">{{ offer.name }}</a>
-                <div class="border-top mt-4 pt-4">
-                  <div class="d-flex justify-content-between">
-                    <h6 class="m-0">
-                      <i class="fa fa-star text-primary mr-2"></i>{{ offer.score }}
-                      <small>({{ off.valuatios }})</small>
-                    </h6>
-                    <h5 class="m-0">${{ offer.price }}</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-  <!-- Packages End -->
-  <!-- Country Start -->
-  <div class="container-fluid py-5">
-    <div class="container pt-5 pb-3">
-      <div class="text-center mb-3 pb-3">
-        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px">Country</h6>
-        <h1>Explore Top Countries</h1>
-      </div>
-      <div class="row">
-        {% for country in country_list %}
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="destination-item position-relative overflow-hidden mb-2">
-              <img class="img-fluid"
-                   src="{% static 'offer/img/{{ country.image }}' %}"
-                   alt="" />
-              <a class="destination-overlay text-white text-decoration-none" href="">
-                <h5 class="text-white">{{ country.name }}</h5>
-                <span>{{ country.offer_set.count }} Offers</span>
-              </a>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-  <!-- Country End -->
-  <!-- Category Start -->
-  <div class="container-fluid py-5">
-    <div class="container pt-5 pb-3">
-      <div class="text-center mb-3 pb-3">
-        <h6 class="text-primary text-uppercase" style="letter-spacing: 5px">Category</h6>
-        <h1>Explore Top Categories</h1>
-      </div>
-      <div class="row">
-        {% for category in category_list %}
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="destination-item position-relative overflow-hidden mb-2">
-              <img class="img-fluid"
-                   src="{% static 'offer/img/{{ category.image }}' %}"
-                   alt="" />
-              <a class="destination-overlay text-white text-decoration-none" href="">
-                <h5 class="text-white">{{ category.name }}</h5>
-                <span>{{ category.offer_set.count }} Offers</span>
-              </a>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-  <!-- Category End -->
-{% endblock %}
+  </section>
+  <section>
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Countries</h2>
+    <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+      {% for country in country_list %}
+        <li class="text-center transform transition duration-500 ease-in-out hover:scale-105">
+          <a href="{% url 'offers:country-detail' pk=country.id %}">
+            <img alt="{{ country.name }}"
+                 class="mx-auto w-24 h-24 object-cover rounded-full mb-2"
+                 height="100"
+                 src="{% static '{{ country.image }}' %}"
+                 style="aspect-ratio: 100 / 100;
+                        object-fit: cover"
+                 width="100" />
+            <p class="text-gray-700 dark:text-gray-300">{{ country.name }}</p>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section>
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Categories</h2>
+    <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+      {% for category in category_list %}
+        <li class="text-center transform transition duration-500 ease-in-out hover:scale-105">
+          <a href="{% url 'offers:category-detail' pk=category.id %}">
+            <img alt="{{ category.name }}"
+                 class="mx-auto w-24 h-24 object-cover rounded-full mb-2"
+                 height="100"
+                 src="{% static '{{ category.image }}' %}"
+                 style="aspect-ratio: 100 / 100;
+                        object-fit: cover"
+                 width="100" />
+            <p class="text-gray-700 dark:text-gray-300">{{ category.name }}</p>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock content %}
