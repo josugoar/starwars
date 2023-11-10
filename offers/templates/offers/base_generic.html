@@ -15,10 +15,12 @@
       <header class="px-4 lg:px-6 h-16 flex items-center justify-between bg-white dark:bg-gray-900">
         <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Travel Offers</h1>
         <nav class="flex items-center space-x-4">
-          <a class="text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-400"
-             href="{% url 'offers:index' %}">Home</a>
-          <a class="text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-400"
-             href="{% url 'offers:offer-list' %}">Offers</a>
+          {% url 'offers:index' as index_url %}
+          <a {% if request.path == index_url %} class="text-blue-500 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-400" {% else %} class="text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-400" {% endif %}
+             href="{{ index_url }}">Home</a>
+          {% url 'offers:offer-list' as offer_list_url %}
+          <a {% if request.path == offer_list_url %} class="text-blue-500 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-400" {% else %} class="text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-400" {% endif %}
+             href="{{ offer_list_url }}">Offers</a>
         </nav>
       </header>
       <main class="flex-1 py-8 px-4 md:px-6">
