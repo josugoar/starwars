@@ -53,6 +53,8 @@
             </button>
           </a>
         </div>
+      {% empty %}
+        <p>No offers available</p>
       {% endfor %}
     </div>
   </section>
@@ -72,6 +74,8 @@
             <p class="text-gray-700 dark:text-gray-300">{{ country.name }}</p>
           </a>
         </li>
+      {% empty %}
+        <p>No countries available</p>
       {% endfor %}
     </ul>
   </section>
@@ -91,6 +95,8 @@
             <p class="text-gray-700 dark:text-gray-300">{{ category.name }}</p>
           </a>
         </li>
+      {% empty %}
+        <p>No categories available</p>
       {% endfor %}
     </ul>
   </section>
