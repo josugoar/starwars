@@ -3,8 +3,9 @@ from django.urls import reverse
 
 
 class Category(models.Model):
-    image = models.ImageField(upload_to="media", blank=True)
+    image = models.FilePathField(path="offers/static/offers/img/categories")
     name = models.CharField(max_length=255)
+    description = models.TextField()
 
     class Meta:
         verbose_name_plural = "categories"
@@ -17,8 +18,9 @@ class Category(models.Model):
 
 
 class Country(models.Model):
-    image = models.ImageField(upload_to="media", blank=True)
+    image = models.FilePathField(path="offers/static/offers/img/countries")
     name = models.CharField(max_length=255)
+    description = models.TextField()
 
     class Meta:
         verbose_name_plural = "countries"
@@ -36,12 +38,9 @@ class Offer(models.Model):
     days = models.IntegerField()
     description = models.TextField()
     featured = models.BooleanField(default=False)
-    image = models.ImageField(upload_to="media", blank=True)
+    image = models.FilePathField(path="offers/static/offers/img/offers")
     name = models.CharField(max_length=255)
-    participants = models.IntegerField()
     price = models.DecimalField(max_digits=7, decimal_places=2)
-    score = models.FloatField(blank=True)
-    valuations = models.IntegerField(default=0)
 
     def get_absolute_url(self):
         return reverse("offers:offer-detail", args=(self.id,))
