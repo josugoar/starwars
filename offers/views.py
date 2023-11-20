@@ -33,8 +33,20 @@ class OfferDetailView(generic.DetailView):
     model = Offer
 
 
+class CountryListView(generic.ListView):
+    model = Country
+    context_object_name = "country_list"
+    queryset = Country.objects.all()
+
+
 class CountryDetailView(generic.DetailView):
     model = Country
+
+
+class CategoryListView(generic.ListView):
+    model = Category
+    context_object_name = "category_list"
+    queryset = Category.objects.all()
 
 
 class CategoryDetailView(generic.DetailView):

@@ -1,0 +1,24 @@
+{% extends "offers/base_generic.html" %}
+{% block content %}
+  <section>
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Categories</h2>
+    <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+      {% for category in category_list %}
+        <li class="text-center transform transition duration-500 ease-in-out hover:scale-105">
+          <a href="{% url 'offers:category-detail' pk=category.id %}">
+            <img alt="{{ category.name }}"
+                 class="mx-auto w-24 h-24 object-cover rounded-full mb-2"
+                 height="100"
+                 src="{{ category.image }}"
+                 style="aspect-ratio: 100 / 100;
+                        object-fit: cover"
+                 width="100" />
+            <p class="text-gray-700 dark:text-gray-300">{{ category.name }}</p>
+          </a>
+        </li>
+      {% empty %}
+        <p>No categories available</p>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock content %}
