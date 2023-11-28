@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-28 13:33+0100\n"
+"POT-Creation-Date: 2023-11-28 14:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,25 +18,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: offers/templates/offers/base_generic.html:21
+#: offers/templates/offers/base_generic.html:17
 msgid "Home"
 msgstr "Inicio"
 
-#: offers/templates/offers/base_generic.html:24
+#: offers/templates/offers/base_generic.html:20
 #: offers/templates/offers/category_detail.html:20
 #: offers/templates/offers/country_detail.html:20
 #: offers/templates/offers/offer_list.html:5
 msgid "Offers"
 msgstr "Ofertas"
 
-#: offers/templates/offers/base_generic.html:34
+#: offers/templates/offers/base_generic.html:23
+#: offers/templates/offers/country_list.html:5
+#: offers/templates/offers/index.html:62
+msgid "Countries"
+msgstr "Paises"
+
+#: offers/templates/offers/base_generic.html:26
+#, fuzzy
+#| msgid "Categories"
+msgid "Category"
+msgstr "Categorías"
+
+#: offers/templates/offers/base_generic.html:36
 msgid "© 2023 Travel Offers. All rights reserved."
 msgstr "© 2023 Travel Offers. Todos los derechos reservados."
 
 #: offers/templates/offers/category_detail.html:47
 #: offers/templates/offers/country_detail.html:47
 #: offers/templates/offers/index.html:32
-#: offers/templates/offers/offer_detail.html:33
+#: offers/templates/offers/offer_detail.html:36
 #: offers/templates/offers/offer_list.html:32
 #, python-format
 msgid "Price: %(price)s€"
@@ -45,7 +57,7 @@ msgstr "Precio: %(price)s€"
 #: offers/templates/offers/category_detail.html:63
 #: offers/templates/offers/country_detail.html:63
 #: offers/templates/offers/index.html:48
-#: offers/templates/offers/offer_detail.html:51
+#: offers/templates/offers/offer_detail.html:52
 #: offers/templates/offers/offer_list.html:48
 #, python-format
 msgid "Duration: %(days)s days"
@@ -67,20 +79,15 @@ msgstr "No hay ofertas disponibles"
 
 #: offers/templates/offers/category_list.html:5
 #: offers/templates/offers/index.html:83
-#: offers/templates/offers/offer_detail.html:73
+#: offers/templates/offers/offer_detail.html:74
 msgid "Categories"
 msgstr "Categorías"
 
 #: offers/templates/offers/category_list.html:21
 #: offers/templates/offers/index.html:99
-#: offers/templates/offers/offer_detail.html:89
+#: offers/templates/offers/offer_detail.html:90
 msgid "No categories available"
 msgstr "No hay categorias disponibles"
-
-#: offers/templates/offers/country_list.html:5
-#: offers/templates/offers/index.html:62
-msgid "Countries"
-msgstr "Paises"
 
 #: offers/templates/offers/country_list.html:21
 #: offers/templates/offers/index.html:78
@@ -91,10 +98,6 @@ msgstr "No hay paises disponibles"
 msgid "Featured Offers"
 msgstr "Ofertas destacadas"
 
-#: offers/templates/offers/offer_detail.html:56
+#: offers/templates/offers/offer_detail.html:57
 msgid "Country"
 msgstr "País"
-
-#: offers/templates/offers/offer_list.html:32
-msgid "Price"
-msgstr "Precio"
