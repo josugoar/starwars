@@ -10,10 +10,10 @@
                 object-fit: cover"
          width="256" />
     <div style="backdrop-filter: blur(5px);
-                background-color: rgba(0, 0, 0, 0.5)"
-         class="absolute bottom-4 left-4 bg-white m-4 p-4 rounded-md backdrop-blur-lg bg-opacity-60">
-      <h2 class="text-2xl font-bold text-gray-900">{{ country.name }}</h2>
-      <p class="text-gray-700">{{ country.description }}</p>
+                background-color: rgba(0, 0, 0, 0.4)"
+         class="absolute bottom-4 left-4 m-4 p-4 rounded-md">
+      <h2 class="text-2xl font-bold text-gray-100">{{ country.name }}</h2>
+      <p class="text-gray-100">{{ country.description }}</p>
     </div>
   </section>
   <section>
@@ -70,7 +70,7 @@
           </form>
         </div>
       {% empty %}
-        <p>{% translate "No offers available" %}</p>
+        <p class="text-gray-700">{% translate "No offers available" %}</p>
       {% endfor %}
     </div>
   </section>

@@ -10,11 +10,11 @@
                 object-fit: cover"
          width="256" />
     <div style="backdrop-filter: blur(5px);
-                background-color: rgba(0, 0, 0, 0.5)"
-         class="absolute bottom-4 left-4 bg-white m-4 p-4 rounded-md backdrop-blur-lg bg-opacity-60">
-      <h2 class="text-2xl font-bold text-gray-900">{{ offer.name }}</h2>
-      <p class="text-gray-700">{{ offer.description }}</p>
-      <p class="text-gray-700 flex items-center">
+                background-color: rgba(0, 0, 0, 0.4)"
+         class="absolute bottom-4 left-4 m-4 p-4 rounded-md flex flex-col">
+      <h2 class="text-2xl font-bold text-gray-100">{{ offer.name }}</h2>
+      <p class="h-full py-2 text-gray-100">{{ offer.description }}</p>
+      <p class="text-gray-100 flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg"
              width="24"
              height="24"
@@ -35,7 +35,7 @@
         </svg>
         {% blocktranslate with price=offer.price %}Price: {{ price }}€{% endblocktranslate %}
       </p>
-      <p class="text-gray-700 flex items-center">
+      <p class="text-gray-100 flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg"
              width="24"
              height="24"
@@ -87,7 +87,7 @@
           </a>
         </li>
       {% empty %}
-        <p>{% translate "No categories available" %}</p>
+        <p class="text-gray-700">{% translate "No categories available" %}</p>
       {% endfor %}
     </ul>
   </section>

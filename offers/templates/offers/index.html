@@ -5,7 +5,7 @@
     <h2 class="text-2xl font-bold text-gray-900">{% translate "Featured Offers" %}</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
       {% for offer in featured_offer_list %}
-        <div class="bg-white rounded-md shadow-md p-4 transform transition duration-500 ease-in-out hover:scale-105">
+        <div class="bg-white rounded-md shadow-md p-4 transform transition duration-500 ease-in-out hover:scale-105 flex flex-col">
           <img alt="{{ offer.name }}"
                class="w-full h-48 object-cover mb-2 rounded-md"
                height="200"
@@ -14,7 +14,7 @@
                       object-fit: cover"
                width="200" />
           <h3 class="text-xl font-bold text-gray-900">{{ offer.name }}</h3>
-          <p class="text-gray-700">{{ offer.description }}</p>
+          <p class="h-full py-2 text-gray-700">{{ offer.description|truncatechars:50 }}</p>
           <p class="text-gray-700 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg"
                  width="24"
@@ -54,7 +54,7 @@
           </form>
         </div>
       {% empty %}
-        <p>{% translate "No offers available" %}</p>
+        <p class="text-gray-700">{% translate "No offers available" %}</p>
       {% endfor %}
     </div>
   </section>
@@ -75,7 +75,7 @@
           </a>
         </li>
       {% empty %}
-        <p>{% translate "No countries available" %}</p>
+        <p class="text-gray-700">{% translate "No countries available" %}</p>
       {% endfor %}
     </ul>
   </section>
@@ -96,7 +96,7 @@
           </a>
         </li>
       {% empty %}
-        <p>{% translate "No categories available" %}</p>
+        <p class="text-gray-700">{% translate "No categories available" %}</p>
       {% endfor %}
     </ul>
   </section>
