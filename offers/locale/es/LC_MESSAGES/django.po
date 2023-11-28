@@ -56,7 +56,7 @@ msgstr "Duración: %(days)s días"
 #: offers/templates/offers/index.html:52
 #: offers/templates/offers/offer_list.html:53
 msgid "Book Now"
-msgstr ""
+msgstr "Reservar Ahora"
 
 #: offers/templates/offers/category_detail.html:73
 #: offers/templates/offers/country_detail.html:73
@@ -91,11 +91,6 @@ msgstr "No hay paises disponibles"
 msgid "Featured Offers"
 msgstr "Ofertas destacadas"
 
-<<<<<<< HEAD
-#: offers/templates/offers/index.html:52
-msgid "Book Now"
-msgstr "Reservar Ahora"
-
 #: offers/templates/offers/offer_detail.html:56
 msgid "Country"
 msgstr "País"
@@ -103,8 +98,3 @@ msgstr "País"
 #: offers/templates/offers/offer_list.html:32
 msgid "Price"
 msgstr "Precio"
-=======
-#: offers/templates/offers/offer_detail.html:56
-msgid "Country"
-msgstr ""
->>>>>>> cb0d417 (Refactor translation tags in HTML templates)
