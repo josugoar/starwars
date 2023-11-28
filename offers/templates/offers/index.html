@@ -2,10 +2,10 @@
 {% load i18n %}
 {% block content %}
   <section>
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">{% translate "Featured Offers" %}</h2>
+    <h2 class="text-2xl font-bold text-gray-900">{% translate "Featured Offers" %}</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
       {% for offer in featured_offer_list %}
-        <div class="bg-white dark:bg-gray-700 rounded-md shadow-md p-4 transform transition duration-500 ease-in-out hover:scale-105">
+        <div class="bg-white rounded-md shadow-md p-4 transform transition duration-500 ease-in-out hover:scale-105">
           <img alt="{{ offer.name }}"
                class="w-full h-48 object-cover mb-2 rounded-md"
                height="200"
@@ -13,9 +13,9 @@
                style="aspect-ratio: 200 / 200;
                       object-fit: cover"
                width="200" />
-          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ offer.name }}</h3>
-          <p class="text-gray-700 dark:text-gray-300">{{ offer.description }}</p>
-          <p class="text-gray-700 dark:text-gray-300 flex items-center">
+          <h3 class="text-xl font-bold text-gray-900">{{ offer.name }}</h3>
+          <p class="text-gray-700">{{ offer.description }}</p>
+          <p class="text-gray-700 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg"
                  width="24"
                  height="24"
@@ -31,7 +31,7 @@
             </svg>
             {% blocktranslate with price=offer.price %}Price: {{ price }}€{% endblocktranslate %}
           </p>
-          <p class="text-gray-700 dark:text-gray-300 flex items-center">
+          <p class="text-gray-700 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg"
                  width="24"
                  height="24"
@@ -59,7 +59,7 @@
     </div>
   </section>
   <section>
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">{% translate "Countries" %}</h2>
+    <h2 class="text-2xl font-bold text-gray-900">{% translate "Countries" %}</h2>
     <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
       {% for country in country_list %}
         <li class="text-center transform transition duration-500 ease-in-out hover:scale-105">
@@ -71,7 +71,7 @@
                  style="aspect-ratio: 100 / 100;
                         object-fit: cover"
                  width="100" />
-            <p class="text-gray-700 dark:text-gray-300">{{ country.name }}</p>
+            <p class="text-gray-700">{{ country.name }}</p>
           </a>
         </li>
       {% empty %}
@@ -80,7 +80,7 @@
     </ul>
   </section>
   <section>
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">{% translate "Categories" %}</h2>
+    <h2 class="text-2xl font-bold text-gray-900">{% translate "Categories" %}</h2>
     <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
       {% for category in category_list %}
         <li class="text-center transform transition duration-500 ease-in-out hover:scale-105">
@@ -92,7 +92,7 @@
                  style="aspect-ratio: 100 / 100;
                         object-fit: cover"
                  width="100" />
-            <p class="text-gray-700 dark:text-gray-300">{{ category.name }}</p>
+            <p class="text-gray-700">{{ category.name }}</p>
           </a>
         </li>
       {% empty %}

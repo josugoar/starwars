@@ -11,10 +11,10 @@
          width="256" />
     <div style="backdrop-filter: blur(5px);
                 background-color: rgba(0, 0, 0, 0.5)"
-         class="absolute bottom-4 left-4 bg-white dark:bg-gray-700 m-4 p-4 rounded-md backdrop-blur-lg bg-opacity-60">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">{{ offer.name }}</h2>
-      <p class="text-gray-700 dark:text-gray-300">{{ offer.description }}</p>
-      <p class="text-gray-700 dark:text-gray-300 flex items-center">
+         class="absolute bottom-4 left-4 bg-white m-4 p-4 rounded-md backdrop-blur-lg bg-opacity-60">
+      <h2 class="text-2xl font-bold text-gray-900">{{ offer.name }}</h2>
+      <p class="text-gray-700">{{ offer.description }}</p>
+      <p class="text-gray-700 flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg"
              width="24"
              height="24"
@@ -25,14 +25,17 @@
              stroke-linecap="round"
              stroke-linejoin="round"
              class=" w-4 h-4 mr-2"
-             style="--darkreader-inline-stroke: currentColor"
-             data-darkreader-inline-stroke="">
-          <line x1="12" x2="12" y1="2" y2="22"></line>
+             line
+             x1="12"
+             x2="12"
+             y1="2"
+             y2="22">
+          </line>
           <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
         </svg>
         {% blocktranslate with price=offer.price %}Price: {{ price }}€{% endblocktranslate %}
       </p>
-      <p class="text-gray-700 dark:text-gray-300 flex items-center">
+      <p class="text-gray-700 flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg"
              width="24"
              height="24"
@@ -42,9 +45,7 @@
              stroke-width="2"
              stroke-linecap="round"
              stroke-linejoin="round"
-             class=" w-4 h-4 mr-2"
-             style="--darkreader-inline-stroke: currentColor"
-             data-darkreader-inline-stroke="">
+             class=" w-4 h-4 mr-2">
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
@@ -53,7 +54,7 @@
     </div>
   </section>
   <section>
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">{% translate "Country" %}</h2>
+    <h2 class="text-2xl font-bold text-gray-900">{% translate "Country" %}</h2>
     <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
       <li class="text-center transform transition duration-500 ease-in-out hover:scale-105">
         <a href="{% url 'offers:country-detail' pk=offer.country.id %}">
@@ -64,13 +65,13 @@
                style="aspect-ratio: 100 / 100;
                       object-fit: cover"
                width="100" />
-          <p class="text-gray-700 dark:text-gray-300">{{ offer.country.name }}</p>
+          <p class="text-gray-700">{{ offer.country.name }}</p>
         </a>
       </li>
     </ul>
   </section>
   <section>
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">{% translate "Categories" %}</h2>
+    <h2 class="text-2xl font-bold text-gray-900">{% translate "Categories" %}</h2>
     <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
       {% for category in offer.categories.all %}
         <li class="text-center transform transition duration-500 ease-in-out hover:scale-105">
@@ -82,7 +83,7 @@
                  style="aspect-ratio: 100 / 100;
                         object-fit: cover"
                  width="100" />
-            <p class="text-gray-700 dark:text-gray-300">{{ category.name }}</p>
+            <p class="text-gray-700">{{ category.name }}</p>
           </a>
         </li>
       {% empty %}

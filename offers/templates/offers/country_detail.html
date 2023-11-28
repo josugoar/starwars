@@ -11,16 +11,16 @@
          width="256" />
     <div style="backdrop-filter: blur(5px);
                 background-color: rgba(0, 0, 0, 0.5)"
-         class="absolute bottom-4 left-4 bg-white dark:bg-gray-700 m-4 p-4 rounded-md backdrop-blur-lg bg-opacity-60">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">{{ country.name }}</h2>
-      <p class="text-gray-700 dark:text-gray-300">{{ country.description }}</p>
+         class="absolute bottom-4 left-4 bg-white m-4 p-4 rounded-md backdrop-blur-lg bg-opacity-60">
+      <h2 class="text-2xl font-bold text-gray-900">{{ country.name }}</h2>
+      <p class="text-gray-700">{{ country.description }}</p>
     </div>
   </section>
   <section>
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100">{% translate "Offers" %}</h2>
+    <h2 class="text-2xl font-bold text-gray-900">{% translate "Offers" %}</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
       {% for offer in country.offer_set.all %}
-        <div class="bg-white dark:bg-gray-700 rounded-md shadow-md p-4 transform transition duration-500 ease-in-out hover:scale-105">
+        <div class="bg-white rounded-md shadow-md p-4 transform transition duration-500 ease-in-out hover:scale-105">
           <img alt="{{ offer.name }}"
                class="w-full h-48 object-cover mb-2 rounded-md"
                height="200"
@@ -28,9 +28,9 @@
                style="aspect-ratio: 200 / 200;
                       object-fit: cover"
                width="200" />
-          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">{{ offer.name }}</h3>
-          <p class="my-2 text-gray-700 dark:text-gray-300">{{ offer.description|truncatechars:50 }}</p>
-          <p class="text-gray-700 dark:text-gray-300 flex items-center">
+          <h3 class="text-xl font-bold text-gray-900">{{ offer.name }}</h3>
+          <p class="my-2 text-gray-700">{{ offer.description|truncatechars:50 }}</p>
+          <p class="text-gray-700 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg"
                  width="24"
                  height="24"
@@ -46,7 +46,7 @@
             </svg>
             {% blocktranslate with price=offer.price %}Price: {{ price }}€{% endblocktranslate %}
           </p>
-          <p class="text-gray-700 dark:text-gray-300 flex items-center">
+          <p class="text-gray-700 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg"
                  width="24"
                  height="24"
