@@ -22,9 +22,9 @@ from django.views.generic.base import RedirectView
 
 
 urlpatterns = [
-    path("", RedirectView.as_view(url=f"{get_language()}/")),
     path("grappelli/", include("grappelli.urls")),
     path("admin/", admin.site.urls),
+
 ]
 
 urlpatterns += i18n_patterns(
