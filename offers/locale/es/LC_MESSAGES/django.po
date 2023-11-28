@@ -1,0 +1,96 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-27 12:50+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: offers/templates/offers/base_generic.html:21
+msgid "Home"
+msgstr ""
+
+#: offers/templates/offers/base_generic.html:24
+#: offers/templates/offers/category_detail.html:20
+#: offers/templates/offers/country_detail.html:20
+#: offers/templates/offers/offer_list.html:5
+msgid "Offers"
+msgstr ""
+
+#: offers/templates/offers/base_generic.html:34
+msgid "© 2023 Travel Offers. All rights reserved."
+msgstr ""
+
+#: offers/templates/offers/category_detail.html:47
+#: offers/templates/offers/country_detail.html:47
+#: offers/templates/offers/index.html:32
+#: offers/templates/offers/offer_detail.html:33
+#, python-format
+msgid "Price: %(price)s€"
+msgstr ""
+
+#: offers/templates/offers/category_detail.html:63
+#: offers/templates/offers/country_detail.html:63
+#: offers/templates/offers/index.html:48
+#: offers/templates/offers/offer_detail.html:51
+#: offers/templates/offers/offer_list.html:48
+#, python-format
+msgid "Duration: %(days)s days"
+msgstr ""
+
+#: offers/templates/offers/category_detail.html:73
+#: offers/templates/offers/country_detail.html:73
+#: offers/templates/offers/index.html:57
+#: offers/templates/offers/offer_list.html:58
+msgid "No offers available"
+msgstr ""
+
+#: offers/templates/offers/category_list.html:5
+#: offers/templates/offers/index.html:83
+#: offers/templates/offers/offer_detail.html:73
+msgid "Categories"
+msgstr ""
+
+#: offers/templates/offers/category_list.html:21
+#: offers/templates/offers/index.html:99
+#: offers/templates/offers/offer_detail.html:89
+msgid "No categories available"
+msgstr ""
+
+#: offers/templates/offers/country_list.html:5
+#: offers/templates/offers/index.html:62
+msgid "Countries"
+msgstr ""
+
+#: offers/templates/offers/country_list.html:21
+#: offers/templates/offers/index.html:78
+msgid "No countries available"
+msgstr ""
+
+#: offers/templates/offers/index.html:5
+msgid "Featured Offers"
+msgstr ""
+
+#: offers/templates/offers/index.html:52
+msgid "Book Now"
+msgstr ""
+
+#: offers/templates/offers/offer_detail.html:56
+msgid "Country"
+msgstr ""
+
+#: offers/templates/offers/offer_list.html:32
+msgid "Price"
+msgstr ""

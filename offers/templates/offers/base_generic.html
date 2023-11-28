@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -17,10 +18,10 @@
         <nav class="flex items-center space-x-4">
           {% url 'offers:index' as index_url %}
           <a {% if request.path == index_url %} class="text-blue-500 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-400" {% else %} class="text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-400" {% endif %}
-             href="{{ index_url }}">Home</a>
+             href="{{ index_url }}">{% translate "Home" %}</a>
           {% url 'offers:offer-list' as offer_list_url %}
           <a {% if request.path == offer_list_url %} class="text-blue-500 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-400" {% else %} class="text-gray-900 dark:text-gray-100 hover:text-blue-500 dark:hover:text-blue-400" {% endif %}
-             href="{{ offer_list_url }}">Offers</a>
+             href="{{ offer_list_url }}">{% translate "Offers" %}</a>
         </nav>
       </header>
       <main class="flex-1 py-8 px-4 md:px-6">
@@ -30,7 +31,7 @@
         </div>
       </main>
       <footer class="h-16 flex items-center justify-center bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 text-sm">
-        © 2023 Travel Offers. All rights reserved.
+        {% translate "© 2023 Travel Offers. All rights reserved." %}
       </footer>
     </div>
   </body>
