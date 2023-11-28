@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-27 12:50+0000\n"
+"POT-Creation-Date: 2023-11-28 13:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,6 +37,7 @@ msgstr "© 2023 Travel Offers. Todos los derechos reservados."
 #: offers/templates/offers/country_detail.html:47
 #: offers/templates/offers/index.html:32
 #: offers/templates/offers/offer_detail.html:33
+#: offers/templates/offers/offer_list.html:32
 #, python-format
 msgid "Price: %(price)s€"
 msgstr "Precio: %(price)s€"
@@ -49,6 +50,13 @@ msgstr "Precio: %(price)s€"
 #, python-format
 msgid "Duration: %(days)s days"
 msgstr "Duración: %(days)s días"
+
+#: offers/templates/offers/category_detail.html:68
+#: offers/templates/offers/country_detail.html:68
+#: offers/templates/offers/index.html:52
+#: offers/templates/offers/offer_list.html:53
+msgid "Book Now"
+msgstr ""
 
 #: offers/templates/offers/category_detail.html:73
 #: offers/templates/offers/country_detail.html:73
@@ -83,6 +91,7 @@ msgstr "No hay paises disponibles"
 msgid "Featured Offers"
 msgstr "Ofertas destacadas"
 
+<<<<<<< HEAD
 #: offers/templates/offers/index.html:52
 msgid "Book Now"
 msgstr "Reservar Ahora"
@@ -94,3 +103,8 @@ msgstr "País"
 #: offers/templates/offers/offer_list.html:32
 msgid "Price"
 msgstr "Precio"
+=======
+#: offers/templates/offers/offer_detail.html:56
+msgid "Country"
+msgstr ""
+>>>>>>> cb0d417 (Refactor translation tags in HTML templates)
