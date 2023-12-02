@@ -48,7 +48,7 @@
             {% blocktranslate with days=offers.days %}Duration: {{ days }} days{% endblocktranslate %}
           </p>
           <form action="{% url 'offers:offer-detail' pk=offer.id %}" method="get">
-            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-black text-white hover:bg-black/90 h-10 px-4 py-2 mt-4">
+            <button class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-black text-white hover:bg-blue-500 transition-all h-10 px-4 py-2 mt-4">
               <span class="font-bold ">{% translate "Book Now" %}</span>
             </button>
           </form>
