@@ -1,0 +1,2 @@
+Add query params to the offers route and make it so that the index form does a get request
+to the offers endpoint with the corresponding query params, where the offers are filtered???
