@@ -38,7 +38,7 @@ msgstr "Paises"
 #: offers/templates/offers/base_generic.html:26
 #, fuzzy
 #| msgid "Categories"
-msgid "Category"
+msgid "Categories"
 msgstr "Categorías"
 
 #: offers/templates/offers/base_generic.html:36
