@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-28 14:08+0000\n"
+"POT-Creation-Date: 2023-12-09 19:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,13 +31,14 @@ msgstr "Ofertas"
 
 #: offers/templates/offers/base_generic.html:23
 #: offers/templates/offers/country_list.html:5
-#: offers/templates/offers/index.html:62
+#: offers/templates/offers/index.html:125
 msgid "Countries"
 msgstr "Paises"
 
 #: offers/templates/offers/base_generic.html:26
-#, fuzzy
-#| msgid "Categories"
+#: offers/templates/offers/category_list.html:5
+#: offers/templates/offers/index.html:146
+#: offers/templates/offers/offer_detail.html:74
 msgid "Categories"
 msgstr "Categorías"
 
@@ -47,7 +48,7 @@ msgstr "© 2023 Travel Offers. Todos los derechos reservados."
 
 #: offers/templates/offers/category_detail.html:47
 #: offers/templates/offers/country_detail.html:47
-#: offers/templates/offers/index.html:32
+#: offers/templates/offers/index.html:95
 #: offers/templates/offers/offer_detail.html:36
 #: offers/templates/offers/offer_list.html:32
 #, python-format
@@ -56,45 +57,53 @@ msgstr "Precio: %(price)s€"
 
 #: offers/templates/offers/category_detail.html:63
 #: offers/templates/offers/country_detail.html:63
-#: offers/templates/offers/index.html:48
+#: offers/templates/offers/index.html:111
 #: offers/templates/offers/offer_detail.html:52
 #: offers/templates/offers/offer_list.html:48
 #, python-format
 msgid "Duration: %(days)s days"
 msgstr "Duración: %(days)s días"
 
-#: offers/templates/offers/category_detail.html:68
-#: offers/templates/offers/country_detail.html:68
-#: offers/templates/offers/index.html:52
-#: offers/templates/offers/offer_list.html:53
+#: offers/templates/offers/category_detail.html:67
+#: offers/templates/offers/country_detail.html:67
+#: offers/templates/offers/index.html:115
+#: offers/templates/offers/offer_list.html:52
 msgid "Book Now"
 msgstr "Reservar Ahora"
 
-#: offers/templates/offers/category_detail.html:73
-#: offers/templates/offers/country_detail.html:73
-#: offers/templates/offers/index.html:57
-#: offers/templates/offers/offer_list.html:58
+#: offers/templates/offers/category_detail.html:72
+#: offers/templates/offers/country_detail.html:72
+#: offers/templates/offers/index.html:120
+#: offers/templates/offers/offer_list.html:57
 msgid "No offers available"
 msgstr "No hay ofertas disponibles"
 
-#: offers/templates/offers/category_list.html:5
-#: offers/templates/offers/index.html:83
-#: offers/templates/offers/offer_detail.html:74
-msgid "Categories"
-msgstr "Categorías"
-
 #: offers/templates/offers/category_list.html:21
-#: offers/templates/offers/index.html:99
+#: offers/templates/offers/index.html:162
 #: offers/templates/offers/offer_detail.html:90
 msgid "No categories available"
 msgstr "No hay categorias disponibles"
 
 #: offers/templates/offers/country_list.html:21
-#: offers/templates/offers/index.html:78
+#: offers/templates/offers/index.html:141
 msgid "No countries available"
 msgstr "No hay paises disponibles"
 
-#: offers/templates/offers/index.html:5
+#: offers/templates/offers/index.html:9
+#, fuzzy
+#| msgid "Featured Offers"
+msgid "Search for Offers"
+msgstr "Ofertas destacadas"
+
+#: offers/templates/offers/index.html:25
+msgid "Search"
+msgstr "Buscar"
+
+#: offers/templates/offers/index.html:32
+msgid "Choose destination"
+msgstr "Elige destino"
+
+#: offers/templates/offers/index.html:68
 msgid "Featured Offers"
 msgstr "Ofertas destacadas"
 
