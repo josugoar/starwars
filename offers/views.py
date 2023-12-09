@@ -21,8 +21,6 @@ class OfferListView(generic.ListView):
 
     def get_queryset(self):
         offers = Offer.objects.all()
-        # TODO: Germany adventure gastronomic repeated
-        # TODO: no offer param if empty search
         offer = self.request.GET.get("offer")
         if offer is not None:
             offers = offers.filter(name__icontains=offer)
@@ -31,7 +29,7 @@ class OfferListView(generic.ListView):
             offers = offers.filter(country__id__exact=country)
         categories = self.request.GET.getlist("categories")
         if categories:
-            offers = offers.filter(categories__id__in=categories)
+            offers = offers.filter(categories__id__in=categories).distinct()
         return offers
 
     def get_context_data(self, **kwargs):
