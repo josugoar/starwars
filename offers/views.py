@@ -18,14 +18,26 @@ class IndexView(generic.ListView):
 class OfferListView(generic.ListView):
     model = Offer
     context_object_name = "offer_list"
-    queryset = Offer.objects.all()
+
+    def get_queryset(self):
+        offers = Offer.objects.all()
+        # TODO: Germany adventure gastronomic repeated
+        # TODO: no offer param if empty search
+        offer = self.request.GET.get("offer")
+        if offer is not None:
+            offers = offers.filter(name__icontains=offer)
+        country = self.request.GET.get("country")
+        if country is not None:
+            offers = offers.filter(country__id__exact=country)
+        categories = self.request.GET.getlist("categories")
+        if categories:
+            offers = offers.filter(categories__id__in=categories)
+        return offers
 
     def get_context_data(self, **kwargs):
         context = super(OfferListView, self).get_context_data(**kwargs)
-        context["country_name_list"] = Country.objects.values_list("name",
-                                                                   flat=True)
-        context["category_name_list"] = Category.objects.values_list("name",
-                                                                     flat=True)
+        context["country_name_list"] = Country.objects.values_list("name", flat=True)
+        context["category_name_list"] = Category.objects.values_list("name", flat=True)
         return context
 
 

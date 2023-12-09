@@ -3,10 +3,12 @@
 {% block content %}
   <section>
     <search class="container px-4 md:px-6">
-    <form class="grid gap-6">
+    <form action="{% url 'offers:offer-list' %}" class="grid gap-6">
       <div class="flex gap-6">
-        <input class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
-               placeholder="Search for offers"
+        <input id="offer"
+               name="offer"
+               class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
+               placeholder="{% translate "Search for Offers" %}"
                type="text" />
         <button class="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-white h-10 px-4 py-2 flex items-center space-x-2">
           <svg xmlns="http://www.w3.org/2000/svg"
@@ -22,14 +24,16 @@
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.3-4.3"></path>
           </svg>
-          <span>Search</span>
+          <span>{% translate "Search" %}</span>
         </button>
       </div>
       <div class="grid grid-cols-2 gap-6">
-        <select tabindex="-1"
+        <select id="country"
+                name="country"
+                tabindex="-1"
                 class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-white px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
           >
-          <option value="" disabled selected hidden>Choose destination</option>
+          <option value="" disabled selected hidden>{% translate "Choose destination" %}</option>
           {% for country in country_list %}<option value="{{ country.id }}">{{ country.name }}</option>{% endfor %}
         </select>
         <div class="flex gap-2 overflow-y-auto">
@@ -39,9 +43,10 @@
                 <div class="inline-flex items-center">
                   <label class="relative flex items-center p-0 rounded-full cursor-pointer"
                          htmlFor="offline">
-                    <input type="checkbox"
-                           class="before:content[''] peer relative -ml-px h-5 w-5 cursor-pointer appearance-none rounded-md border-2 border-gray-900 transition-all before:absolute before:top-2/4 before:left-2/4 before:hidden before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-gray-400 hover:before:opacity-10"
-                           id="offline" />
+                    <input name="categories"
+                           value="{{ category.id }}"
+                           type="checkbox"
+                           class="before:content[''] peer relative -ml-px h-5 w-5 cursor-pointer appearance-none rounded-md border-2 border-gray-900 transition-all before:absolute before:top-2/4 before:left-2/4 before:hidden before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-400 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-gray-400 hover:before:opacity-10" />
                     <span class="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
                       <svg xmlns="http://www.w3.org/2000/svg"
                            class="h-3.5 w-3.5"
