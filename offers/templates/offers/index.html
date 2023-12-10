@@ -3,17 +3,23 @@
 {% block content %}
   <section>
     <search class="container px-4 md:px-6">
-    <form action="{% url 'offers:offer-list' %}" class="grid gap-6">
+    <script>
+      function checkEmpty() {
+        const offer = document.getElementById("offer");
+        if (offer.value === "") {
+          offer.disabled = true;
+        }
+      }
+    </script>
+    <form onsubmit="checkEmpty()"
+          action="{% url 'offers:offer-list' %}"
+          class="grid gap-6">
       <div class="flex gap-6">
         <input id="offer"
                name="offer"
                class="flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full"
                placeholder="{% translate "Search for Offers" %}"
                type="text" />
-        <script>
-          const input = document.querySelector('#offer:empty');
-          input.disabled = true;
-        </script>
         <button class="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-white h-10 px-4 py-2 flex items-center space-x-2">
           <svg xmlns="http://www.w3.org/2000/svg"
                width="24"
